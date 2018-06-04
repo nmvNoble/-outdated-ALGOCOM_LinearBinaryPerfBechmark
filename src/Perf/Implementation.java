@@ -25,9 +25,9 @@ public class Implementation {
     BinarySearch binarySearch = new BinarySearch(); 
     int binSearch;
     int linSearch;
-    int arraySize = 10000;
+    int arraySize = 100;
     int minVal = 0;
-    int maxVal = 100000;
+    int maxVal = 200;
     int numList[] = generateSorted(arraySize, minVal, maxVal); 
     int toSearch = getRandomVal(minVal,maxVal); 
 
@@ -45,6 +45,7 @@ public class Implementation {
     System.out.println("\n\nSearching for " + toSearch + " from size " + arraySize + " Array");
     System.out.println("-Array List-");
     System.out.println(Arrays.toString(numList));
+    System.out.println("Number to be searched: "+toSearch);
     if(binSearch == 999999999 || linSearch == 99999999){
         System.out.println("\nBinary Search Failed");
         System.out.println("Binary Milliseconds : " + elapsedBTime); 
@@ -64,9 +65,25 @@ public class Implementation {
     private static final Random rand = new Random();
     public static int[] generateSorted(final int length, final int minVal, final int maxVal) {
         List<Integer> data = new ArrayList<>(length);
+        int ranVal;
 
-        for (int i = 0; i < length; i++) {          
-            data.add(getRandomVal(minVal, maxVal));
+        for (int i = 0; i < length; i++) {
+            
+            ranVal=getRandomVal(minVal, maxVal);
+            if(data.size()==0)
+                data.add(ranVal);
+            else{
+                int datasize=0;
+                for(int a=0; a<data.size(); a++){
+                    if(data.get(a)!=ranVal)
+                        datasize+=1;
+
+                        //data.add(ranVal);
+                }
+                if(datasize==data.size())
+                    data.add(ranVal);
+            }
+            
         }
         Collections.sort(data);
 
