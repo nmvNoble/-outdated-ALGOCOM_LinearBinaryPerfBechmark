@@ -13,8 +13,9 @@ public class LinearSearch {
   
  int searchElementLinear(int numList[], int toSearch) {  
   int foundIndex = 999999999;  
-  for (int i = 0; i < numList.length; i++) {  
-       System.out.println("Linear: " + numList[i] + "?=" + toSearch); 
+  System.out.println("\n=================================\n"); 
+  for (int i = 0; i < numList.length; i++) {
+      System.out.println("Linear: " + numList[i] + "?=" + toSearch); 
   
    if (numList[i] == toSearch) { 
     foundIndex = i;

@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package Perf;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
+import java.util.stream.IntStream;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Random;
-import java.util.stream.IntStream;
 
 /**
  *
@@ -25,11 +26,12 @@ public class Implementation {
     BinarySearch binarySearch = new BinarySearch(); 
     int binSearch;
     int linSearch;
-    int arraySize = 100;
-    int minVal = 0;
-    int maxVal = 200;
-    int numList[] = generateSorted(arraySize, minVal, maxVal); 
-    int toSearch = getRandomVal(minVal,maxVal); 
+    int arraySize = 1000000;
+    //int minVal = 1;
+    //int maxVal = 100;
+    //int numList[] = generateSorted(arraySize, minVal, maxVal); 
+    int numList[] = IntStream.range(1, arraySize+1).toArray();  
+    int toSearch = getRandomVal(1, arraySize+1);//(minVal,maxVal); 
 
     long startBTime = System.currentTimeMillis();
     binSearch = binarySearch.searchElementBinary(numList, toSearch);  
@@ -42,9 +44,9 @@ public class Implementation {
     long elapsedLTime = stopLTime - startLTime;
     
     
-    System.out.println("\n\nSearching for " + toSearch + " from size " + arraySize + " Array");
-    System.out.println("-Array List-");
-    System.out.println(Arrays.toString(numList));
+    System.out.println("\n\nArray Size: " + arraySize);
+    //System.out.println("-Array List-");
+    //System.out.println(Arrays.toString(numList));
     System.out.println("Number to be searched: "+toSearch);
     if(binSearch == 999999999 || linSearch == 99999999){
         System.out.println("\nBinary Search Failed");
@@ -63,7 +65,10 @@ public class Implementation {
  
     //Sorted Random number array generator
     private static final Random rand = new Random();
-    public static int[] generateSorted(final int length, final int minVal, final int maxVal) {
+    private static int getRandomVal(int min, int max) {
+    return min + rand.nextInt(max - min + 1);
+    }
+    /*public static int[] generateSorted(final int length, final int minVal, final int maxVal) {
         List<Integer> data = new ArrayList<>(length);
         int ranVal;
 
@@ -88,8 +93,5 @@ public class Implementation {
         Collections.sort(data);
 
         return data.stream().mapToInt(i -> i).toArray();
-        }
-    private static int getRandomVal(int min, int max) {
-    return min + rand.nextInt(max - min + 1);
-    }
+    }*/
 }  
