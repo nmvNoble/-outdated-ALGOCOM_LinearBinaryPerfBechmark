@@ -26,7 +26,7 @@ public class Implementation {
     BinarySearch binarySearch = new BinarySearch(); 
     int binSearch;
     int linSearch;
-    int arraySize = 1000000;
+    int arraySize = 100;
     //int minVal = 1;
     //int maxVal = 100;
     //int numList[] = generateSorted(arraySize, minVal, maxVal); 

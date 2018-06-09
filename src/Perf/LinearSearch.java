@@ -11,18 +11,18 @@ package Perf;
  */
 public class LinearSearch {  
   
- int searchElementLinear(int numList[], int toSearch) {  
-  int foundIndex = 999999999;  
-  System.out.println("\n=================================\n"); 
-  for (int i = 0; i < numList.length; i++) {
-      System.out.println("Linear: " + numList[i] + "?=" + toSearch); 
+    int searchElementLinear(int numList[], int toSearch) {  
+        int foundIndex = 999999999;  
+        System.out.println("\n=================================\n"); 
+        for (int i = 0; i < numList.length; i++) {
+            System.out.println("Linear: " + numList[i] + "?=" + toSearch); 
   
-   if (numList[i] == toSearch) { 
-    foundIndex = i;
-    break;
-   }  
-  }
+            if (numList[i] == toSearch) { 
+            foundIndex = i;
+            break;
+        }  
+       }
       
-  return foundIndex;  
- }  
+    return foundIndex;  
+    }  
 }  
